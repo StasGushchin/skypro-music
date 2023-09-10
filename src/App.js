@@ -7,7 +7,6 @@ import Tracklist from './components/Tracklist/Tracklist';
 
 function App() {
   return (
-    // <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
