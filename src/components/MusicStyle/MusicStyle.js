@@ -10,6 +10,7 @@ function MusicStyle() {
         <>
         <div>
             <select className="filter__button button-year _btn-text" value={value} onChange={changeSelect}>
+                <option>жанру</option>
                 <option>Pop</option>
                 <option>Rock</option>
                 <option>Soul</option>

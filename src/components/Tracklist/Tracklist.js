@@ -20,9 +20,11 @@ function Tracklist() {
             <h2 className="centerblock__h2">Треки</h2>
             <div className="centerblock__filter filter">
               <div className="filter__title">Искать по:</div>
-              <Singer/>
-              <Year/>
-              <MusicStyle/>
+              <div className="filter">
+                <Singer/>
+                <Year/>
+                <MusicStyle/>
+              </div>
             </div>
             <div className="centerblock__content">
               <div className="content__title playlist-title">

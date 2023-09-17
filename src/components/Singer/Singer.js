@@ -10,6 +10,7 @@ function Singer() {
         <>
         <div>
             <select className="filter__button button-year _btn-text" value={value} onChange={changeSelect}>
+                <option className="option">исполнителю</option>
                 <option>Nero</option>
                 <option>Dynoro, Outwork, Mr. Gee</option>
                 <option>Ali Bakgor</option>

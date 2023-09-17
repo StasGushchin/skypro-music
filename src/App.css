@@ -288,6 +288,11 @@ body {
   line-height: 24px;
 }
 
+.filter {
+  display: flex;
+  gap: 8px;
+}
+
 .filter__title {
   font-style: normal;
   font-weight: 400;
@@ -305,6 +310,10 @@ body {
   border-radius: 60px;
   padding: 6px 20px;
   background: transparent;
+  color: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .filter__button:not(:last-child) {

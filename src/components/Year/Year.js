@@ -10,6 +10,7 @@ function Year() {
         <>
         <div>
             <select className="filter__button button-year _btn-text" value={value} onChange={changeSelect}>
+                <option>году выпуска</option>
                 <option>1992</option>
                 <option>1995</option>
                 <option>1997</option>
