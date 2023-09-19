@@ -3,17 +3,16 @@ import ContentLoader from "react-content-loader"
 
 const Skeleton = (props) => (
   <ContentLoader 
-    className="sidebar__item"
     speed={2}
-    width={250}
-    height={150}
-    viewBox="0 0 250 150"
+    width={props.width}
+    height={props.height}
+    viewBox={`0 0 ${props.width} ${props.height}`}
     backgroundColor="#1f1f1f"
     foregroundColor="#313131"
     {...props}
   >
-    <rect x="5" y="-12" rx="0" ry="0" width="250" height="150" />
+    <rect x={0} y={0} rx="0" ry="0" width={props.width} height={props.height} />
   </ContentLoader>
-)
+);
 
-export default Skeleton
+export default Skeleton;

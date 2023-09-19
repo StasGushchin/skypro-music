@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 function BurgerMenu() {
-    const [visible, setVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
-    const toggleVisibility = () => setVisible(!visible);
+    const toggleVisibility = () => setIsVisible((prev) => !prev);
     return (
         <>
             <div onClick={toggleVisibility} className="nav__burger burger">
@@ -11,7 +11,7 @@ function BurgerMenu() {
               <span className="burger__line"></span>
               <span className="burger__line"></span>
             </div>
-            {visible && (
+            {isVisible && (
             <div className="nav__menu menu">
               <ul className="menu__list">
                 <li className="menu__item">

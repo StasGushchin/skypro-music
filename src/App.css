@@ -447,6 +447,10 @@ body {
   margin-right: 17px;
 }
 
+.track__title-image__skeleton {
+  padding: 0;
+}
+
 .track__title-svg {
   width: 18px;
   height: 17px;
