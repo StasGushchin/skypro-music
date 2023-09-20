@@ -317,7 +317,7 @@ body {
 }
 
 .filter__button:not(:last-child) {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .option {
@@ -902,4 +902,39 @@ body {
 
 .volume__progress-line {
   width: 109px;
+}
+
+
+
+
+.filter-list {
+  width: 248px;
+  min-height: 196px;
+  max-height: 305px;
+  padding: 38px 38px 0;
+  border-radius: 12px;
+  overflow-y: auto;
+  background: #313131;
+  color: #FFFFFF;
+  font-family: StratosSkyeng;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+
+.filter-listitems {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.filter-listitem {
+  padding: 8px 16px;
+}
+
+.filter-list__item--active {
+/*  color: #B672FF;
+  text-decoration-line: none;*/
 }

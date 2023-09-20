@@ -1,4 +1,4 @@
-import Filter from '../Singer/Filter';
+import Filter from '../Filter/Filter'
 import Track from '../Track/Track'
 
 function Tracklist() {
