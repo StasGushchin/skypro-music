@@ -1,3 +1,6 @@
+import React from "react"
+import Skeleton from '../Skeleton/Skeleton'
+
 function Sidebar() {
     return (
         <div className="main__sidebar sidebar">
@@ -11,7 +14,7 @@ function Sidebar() {
             </div>
             <div className="sidebar__block">
               <div className="sidebar__list">
-                <div className="sidebar__item">
+                {/* <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
                     <img
                       className="sidebar__img"
@@ -19,8 +22,11 @@ function Sidebar() {
                       alt="day's playlist"
                     />
                   </a>
-                </div>
-                <div className="sidebar__item">
+                </div> */}
+                <Skeleton className="sidebar__item
+                track__title-image__skeleton" width={250} height={150}
+                />
+                {/* <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
                     <img
                       className="sidebar__img"
@@ -28,8 +34,11 @@ function Sidebar() {
                       alt="day's playlist"
                     />
                   </a>
-                </div>
-                <div className="sidebar__item">
+                </div> */}
+                <Skeleton className="sidebar__item
+                track__title-image__skeleton" width={250} height={150}
+                />
+                {/* <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
                     <img
                       className="sidebar__img"
@@ -37,7 +46,10 @@ function Sidebar() {
                       alt="day's playlist"
                     />
                   </a>
-                </div>
+                </div> */}
+                <Skeleton className="sidebar__item
+                track__title-image__skeleton" width={250} height={150}
+                />
               </div>
             </div>
           </div>

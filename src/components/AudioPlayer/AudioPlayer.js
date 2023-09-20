@@ -1,3 +1,6 @@
+import React from "react"
+import Skeleton from '../Skeleton/Skeleton'
+
 function AudioPlayer() {
   return (
     <div className="bar">
@@ -35,21 +38,30 @@ function AudioPlayer() {
 
             <div className="player__track-play track-play">
               <div className="track-play__contain">
-                <div className="track-play__image">
+                {/* <div className="track-play__image">
                   <svg className="track-play__svg" alt="music">
                     <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
                   </svg>
-                </div>
-                <div className="track-play__author">
+                </div> */}
+                <Skeleton className="track-play__image
+                track__title-image__skeleton" width={51} height={51}
+                />
+                {/* <div className="track-play__author">
                   <a className="track-play__author-link" href="http://">
                     Ты та...
                   </a>
-                </div>
-                <div className="track-play__album">
+                </div> */}
+                <Skeleton className="track-play__author
+                track__title-image__skeleton" width={59} height={15}
+                />
+                {/* <div className="track-play__album">
                   <a className="track-play__album-link" href="http://">
                     Баста
                   </a>
-                </div>
+                </div> */}
+                <Skeleton className="track-play__album
+                track__title-image__skeleton" width={59} height={15}
+                />
               </div>
 
               <div className="track-play__like-dis">
