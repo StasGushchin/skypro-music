@@ -1,10 +1,7 @@
 import Filter from '../Singer/Filter';
 import Track from '../Track/Track'
-import { useState } from 'react'
 
 function Tracklist() {
-  const [activeFilter, setActiveFiler] = useState(null);
-
 
   return (
     <div className="main__centerblock centerblock">
@@ -20,14 +17,9 @@ function Tracklist() {
         />
       </div>
       <h2 className="centerblock__h2">Треки</h2>
-      <div className="centerblock__filter filter">
-        <div className="filter__title">Искать по:</div>
-        <div className="filter">
-          <Filter isOpen={activeFilter === "author"}></Filter>
-          <Filter isOpen={activeFilter === "year"}></Filter>
-          <Filter isOpen={activeFilter === "style"}></Filter>
-        </div>
-      </div>
+
+      <Filter/>
+
       <div className="centerblock__content">
         <div className="content__title playlist-title">
           <div className="playlist-title__col col01">Трек</div>
