@@ -1,7 +1,56 @@
-import React from "react"
+import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 
 function AudioPlayer() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  setTimeout(() => {
+    setIsVisible(true)
+  }, 4000)
+
+  let AudioPlayerItem = isVisible ? (
+    <div className="track-play__contain">
+      <div className="track-play__image">
+        <svg className="track-play__svg" alt="music">
+          <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+        </svg>
+      </div>
+
+      <div className="track-play__author">
+        <a className="track-play__author-link" href="http://">
+          Ты та...
+        </a>
+      </div>
+
+      <div className="track-play__album">
+        <a className="track-play__album-link" href="http://">
+          Баста
+        </a>
+      </div>
+    </div>
+  ) : (
+    <div className="track-play__contain">
+      <Skeleton
+        className="track-play__image
+                track__title-image__skeleton"
+        width={51}
+        height={51}
+      />
+      <Skeleton
+        className="track-play__author
+                track__title-image__skeleton"
+        width={59}
+        height={15}
+      />
+      <Skeleton
+        className="track-play__album
+                track__title-image__skeleton"
+        width={59}
+        height={15}
+      />
+    </div>
+  )
+
   return (
     <div className="bar">
       <div className="bar__content">
@@ -37,32 +86,8 @@ function AudioPlayer() {
             </div>
 
             <div className="player__track-play track-play">
-              <div className="track-play__contain">
-                {/* <div className="track-play__image">
-                  <svg className="track-play__svg" alt="music">
-                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
-                  </svg>
-                </div> */}
-                <Skeleton className="track-play__image
-                track__title-image__skeleton" width={51} height={51}
-                />
-                {/* <div className="track-play__author">
-                  <a className="track-play__author-link" href="http://">
-                    Ты та...
-                  </a>
-                </div> */}
-                <Skeleton className="track-play__author
-                track__title-image__skeleton" width={59} height={15}
-                />
-                {/* <div className="track-play__album">
-                  <a className="track-play__album-link" href="http://">
-                    Баста
-                  </a>
-                </div> */}
-                <Skeleton className="track-play__album
-                track__title-image__skeleton" width={59} height={15}
-                />
-              </div>
+              
+              {AudioPlayerItem}
 
               <div className="track-play__like-dis">
                 <div className="track-play__like _btn-icon">
