@@ -904,14 +904,11 @@ body {
   width: 109px;
 }
 
-
-
-
 .filter-list {
   width: 248px;
   min-height: 196px;
-  max-height: 305px;
-  padding: 38px 38px 0;
+  max-height: 200px;
+  padding: 34px 34px 0;
   border-radius: 12px;
   overflow-y: auto;
   background: #313131;
@@ -923,11 +920,21 @@ body {
   line-height: 24px;
 }
 
+::-webkit-scrollbar {
+width: 6px;
+height: 237px;
+background-color: #4B4949;
+border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
 
 .filter-listitems {
   list-style-type: none;
-  padding: 0;
-
 }
 
 .filter-listitem {
@@ -938,3 +945,4 @@ body {
 /*  color: #B672FF;
   text-decoration-line: none;*/
 }
+
