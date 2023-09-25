@@ -13,9 +13,8 @@ function FilterButton({ title, isOpen, onClick, data }) {
             className="filter-listitems"
           >
             {data.map((item, index) => (
-              <li className="filter-listitem" key={index} >
-                {item}
-                
+              <li className="filter-listitem" key={index}>
+              {item}
               </li>
             ))}
           </ul>
