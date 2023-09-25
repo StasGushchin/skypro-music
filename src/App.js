@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Tracklist from './components/Tracklist/Tracklist';
 
 
+
 function App() {
   return (
 <html lang="ru">
@@ -21,7 +22,7 @@ function App() {
       <div className="container">
         <main className="main">
           <NavMenu/>
-          <Tracklist/>  
+          <Tracklist/>
           <Sidebar/>
         </main>
           <AudioPlayer/>
