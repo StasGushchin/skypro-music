@@ -1,26 +1,25 @@
 import React from "react";
+import * as S from './FilterButton.styles'
 
 function FilterButton({ title, isOpen, onClick, data }) {
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", position: "relative" }}>
-      <div className="filter__button button-author _btn-text" onClick={onClick}>
+    <S.MainCenterblock
+      >
+      <S.FilterButton className="filter__button button-author _btn-text" onClick={onClick}>
         {title}
-      </div>
+      </S.FilterButton>
       {isOpen && (
         <div className="filter-list" style={{position:"absolute", top: "50px"}}>
-          <ul
-            className="filter-listitems"
-          >
+          <S.FilterListItems>
             {data.map((item, index) => (
-              <li className="filter-listitem" key={index}>
+              <S.FilterListItem key={index}>
               {item}
-              </li>
+              </S.FilterListItem>
             ))}
-          </ul>
+          </S.FilterListItems>
         </div> 
       )}
-    </div>
+    </S.MainCenterblock>
   );
 }
 
