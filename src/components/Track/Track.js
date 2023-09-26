@@ -9,6 +9,7 @@ function Track() {
   }, 4000)
 
   let TrackItem = isVisible ? (
+  <div className="content__playlist playlist">  
     <div class="playlist__track track">
       <div class="track__title">
         <div class="track__title-image">
@@ -39,6 +40,7 @@ function Track() {
         <span class="track__time-text">4:44</span>
       </div>
     </div>
+  </div>  
   ) : (
     <div className="playlist__track track">
       <Skeleton

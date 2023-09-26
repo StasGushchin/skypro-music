@@ -1,41 +1,39 @@
 import Filter from '../Filter/Filter'
 import Track from '../Track/Track'
+import * as S from './Tracklist.styles'
 
 function Tracklist() {
 
   return (
-    <div className="main__centerblock centerblock">
-      <div className="centerblock__search search">
-        <svg className="search__svg">
+    <S.MainCenterblock>
+      <S.CenterblockSearch>
+        <S.SearchSvg>
           <use xlinkHref="img/icon/sprite.svg#icon-search"></use>
-        </svg>
-        <input
-          className="search__text"
+        </S.SearchSvg>
+        <S.SearchText
           type="search"
           placeholder="Поиск"
           name="search"
         />
-      </div>
-      <h2 className="centerblock__h2">Треки</h2>
+      </S.CenterblockSearch>
+      <S.CenterBlockH2>Треки</S.CenterBlockH2>
 
       <Filter/>
 
-      <div className="centerblock__content">
-        <div className="content__title playlist-title">
-          <div className="playlist-title__col col01">Трек</div>
-          <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-          <div className="playlist-title__col col03">АЛЬБОМ</div>
-          <div className="playlist-title__col col04">
-            <svg className="playlist-title__svg" alt="time">
+      <S.CenterBlock>
+        <S.ContentTitle>
+          <S.PlaylistTitleTrack>Трек</S.PlaylistTitleTrack>
+          <S.PlaylistTitleSinger>ИСПОЛНИТЕЛЬ</S.PlaylistTitleSinger>
+          <S.PlaylistTitleAlbum>АЛЬБОМ</S.PlaylistTitleAlbum>
+          <S.PlaylistTitleTime>
+            <S.PlaylistTitle alt="time">
               <use xlinkHref="img/icon/sprite.svg#icon-watch"></use>
-            </svg>
-          </div>
-        </div>
-        <div className="content__playlist playlist">
+            </S.PlaylistTitle>
+          </S.PlaylistTitleTime>
+        </S.ContentTitle>
           <Track/>
-        </div>
-      </div>
-    </div>
+      </S.CenterBlock>
+    </S.MainCenterblock>
   )
 }
 
