@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 export const MainCenterblock = styled.div`
   display: flex;
-  flexdirection: column;
+  flex-direction: column;
   position: relative;
 `
 
