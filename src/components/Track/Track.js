@@ -45,7 +45,7 @@ function Track() {
   ) : (
     <S.PlayListTrack>
       <Skeleton
-        className="track__title-image track__title-image__skeleton"
+        className="track__title-text track__title-image__skeleton"
         width={51}
         height={51}
       />
