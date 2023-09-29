@@ -45,22 +45,22 @@ function Track() {
   ) : (
     <S.PlayListTrack>
       <Skeleton
-        className="track__title-text track__title-image__skeleton"
+        padding={0}
         width={51}
         height={51}
       />
       <Skeleton
-        className="track__title-text track__title-image__skeleton"
+        padding={0}
         width={356}
         height={19}
       />
       <Skeleton
-        className="track__author track__title-image__skeleton"
+        padding={0}
         width={271}
         height={19}
       />
       <Skeleton
-        className="track__album track__title-image__skeleton"
+        
         width={305}
         height={19}
       />

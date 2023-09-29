@@ -3,6 +3,9 @@ import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 import NavMenu from './components/NavMenu/NavMenu';
 import Sidebar from './components/Sidebar/Sidebar';
 import Tracklist from './components/Tracklist/Tracklist';
+import GlobalStyle from './createGlobal.styles'
+import * as P from './createGlobal.styles';
+import * as S from './App.styles'
 
 
 
@@ -17,19 +20,19 @@ function App() {
     <link rel="stylesheet" href="css/style.css" />
     <title>Skypro</title>
   </head>
-  <body>
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+  <P.GlobalStyle>
+    <S.Wrapper>
+      <S.Container>
+        <S.Main>
           <NavMenu/>
           <Tracklist/>
           <Sidebar/>
-        </main>
+        </S.Main>
           <AudioPlayer/>
         <footer className="footer"/>
-      </div>
-    </div>
-  </body>
+      </S.Container>
+    </S.Wrapper>
+  </P.GlobalStyle>
 </html>
   );
 }

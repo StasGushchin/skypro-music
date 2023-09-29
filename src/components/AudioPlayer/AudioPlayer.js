@@ -32,20 +32,17 @@ function AudioPlayer() {
   ) : (
     <S.TrackPlayContain>
       <Skeleton
-        className="track-play__image
-                track__title-image__skeleton"
+        className="track-play__image"
         width={51}
         height={51}
       />
       <Skeleton
-        className="track-play__author
-                track__title-image__skeleton"
+        className="track-play__author"
         width={59}
         height={15}
       />
       <Skeleton
-        className="track-play__album
-                track__title-image__skeleton"
+        className="track-play__album"
         width={59}
         height={15}
       />

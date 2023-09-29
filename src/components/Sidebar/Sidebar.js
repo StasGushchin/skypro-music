@@ -41,17 +41,17 @@ function Sidebar() {
   ) : (
     <S.SidebarList>
       <Skeleton
-        className="sidebar__item track__title-image__skeleton"
+        className="sidebar__item"
         width={250}
         height={150}
       />
       <Skeleton
-        className="sidebar__item track__title-image__skeleton"
+        className="sidebar__item"
         width={250}
         height={150}
       />
       <Skeleton
-        className="sidebar__item track__title-image__skeleton"
+        className="sidebar__item"
         width={250}
         height={150}
       />
