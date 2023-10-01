@@ -6,12 +6,13 @@ const Skeleton = (props) => (
     speed={2}
     width={props.width}
     height={props.height}
+    margin={props.margin}
     viewBox={`0 0 ${props.width} ${props.height}`}
     backgroundColor="#1f1f1f"
     foregroundColor="#313131"
     {...props}
   >
-    <rect x={0} y={0} rx="0" ry="0" width={props.width} height={props.height} />
+    <rect x={0} y={0} rx="0" ry="0" width={props.width} height={props.height} margin={props.margin} />
   </ContentLoader>
 );
 
