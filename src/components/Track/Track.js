@@ -60,7 +60,7 @@ function Track() {
         height={19}
       />
       <Skeleton
-        
+        padding={0}
         width={305}
         height={19}
       />

@@ -40,21 +40,28 @@ function Sidebar() {
     </S.SidebarList>
   ) : (
     <S.SidebarList>
-      <Skeleton
-        className="sidebar__item"
+
+      <S.SidebarItem>
+        <Skeleton
         width={250}
         height={150}
-      />
-      <Skeleton
-        className="sidebar__item"
+        />
+      </S.SidebarItem>
+
+      <S.SidebarItem>
+        <Skeleton
         width={250}
         height={150}
-      />
-      <Skeleton
-        className="sidebar__item"
+        />
+      </S.SidebarItem>
+
+      <S.SidebarItem>
+        <Skeleton
         width={250}
         height={150}
-      />
+        />
+      </S.SidebarItem>
+      
     </S.SidebarList>
   )
 

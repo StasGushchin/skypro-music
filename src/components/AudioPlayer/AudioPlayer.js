@@ -31,21 +31,28 @@ function AudioPlayer() {
     </S.TrackPlayContain>
   ) : (
     <S.TrackPlayContain>
-      <Skeleton
-        className="track-play__image"
-        width={51}
-        height={51}
+
+      <S.TrackPlayImage>
+        <Skeleton
+          width={51}
+          height={51}
+        />
+      </S.TrackPlayImage>
+
+      <S.TrackPlayAuthor>
+        <Skeleton
+          width={59}
+          height={15}
       />
-      <Skeleton
-        className="track-play__author"
+      </S.TrackPlayAuthor>
+
+      <S.TrackPlayAlbum>
+        <Skeleton
         width={59}
         height={15}
       />
-      <Skeleton
-        className="track-play__album"
-        width={59}
-        height={15}
-      />
+      </S.TrackPlayAlbum>
+      
     </S.TrackPlayContain>
   )
 
