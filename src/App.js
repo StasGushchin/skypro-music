@@ -27,10 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
   
-  button,
-  ._btn {
-    cursor: pointer;
-  }
+
   
   ul li {
     list-style: none;

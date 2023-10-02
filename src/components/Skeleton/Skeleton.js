@@ -6,7 +6,6 @@ const Skeleton = (props) => (
     speed={2}
     width={props.width}
     height={props.height}
-    margin={props.margin}
     viewBox={`0 0 ${props.width} ${props.height}`}
     backgroundColor="#1f1f1f"
     foregroundColor="#313131"

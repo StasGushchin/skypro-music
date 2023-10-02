@@ -28,3 +28,19 @@ export const FilterListItems = styled.ul`
 export const FilterListItem = styled.li`
   padding: 8px 16px;
 `
+
+export const FilterList = styled.div`
+  width: 248px;
+  min-height: 196px;
+  max-height: 200px;
+  padding: 34px 34px 0;
+  border-radius: 12px;
+  overflow-y: auto;
+  background: #313131;
+  color: #ffffff;
+  font-family: StratosSkyeng;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`
