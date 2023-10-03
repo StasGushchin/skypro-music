@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FilterButton from "../FilterButton/FilterButton";
 import { authorItem, genreItem, yearItem } from "../data/data";
+import * as S from './Filter.styles'
 
 function Filter() {
 
@@ -15,9 +16,9 @@ const selectFilter = (filter) => {
 }
 
 return (
-    <div className="centerblock__filter filter">
-        <div className="filter__title">Искать по:</div>
-        <div className="filter">
+    <S.CenterBlockFilter>
+        <S.FilterTitle>Искать по:</S.FilterTitle>
+        <S.Filter>
 
           <FilterButton 
             data={authorItem}
@@ -37,8 +38,8 @@ return (
             isOpen={activeFilter === "genre"} 
             onClick={() => selectFilter("genre")}/>
 
-        </div>
-    </div>
+        </S.Filter>
+    </S.CenterBlockFilter>
     )
 }
 
