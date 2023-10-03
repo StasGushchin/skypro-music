@@ -1,11 +1,7 @@
 import './App.css';
-import AudioPlayer from './components/AudioPlayer/AudioPlayer';
-import NavMenu from './components/NavMenu/NavMenu';
-import Sidebar from './components/Sidebar/Sidebar';
-import Tracklist from './components/Tracklist/Tracklist';
 import { createGlobalStyle } from 'styled-components'
-import * as S from './App.styles'
 import { BrowserRouter } from "react-router-dom";
+import { MainPage } from './pages/MainPage/MainPage';
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -29,7 +25,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   
 
-  
   ul li {
     list-style: none;
   }
@@ -66,17 +61,8 @@ function App() {
     <title>Skypro</title>
   </head>
   <BrowserRouter>
-  <GlobalStyle/>
-    <S.Wrapper>
-      <S.Container>
-        <S.Main>
-          <NavMenu/>
-          <Tracklist/>
-          <Sidebar/>
-        </S.Main>
-          <AudioPlayer/>
-      </S.Container>
-    </S.Wrapper>
+    <GlobalStyle/>
+      <MainPage/>
   </BrowserRouter>  
 </html>
   );
