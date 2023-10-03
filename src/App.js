@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Tracklist from './components/Tracklist/Tracklist';
 import { createGlobalStyle } from 'styled-components'
 import * as S from './App.styles'
+import { BrowserRouter } from "react-router-dom";
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -64,6 +65,7 @@ function App() {
     <link rel="stylesheet" href="css/style.css" />
     <title>Skypro</title>
   </head>
+  <BrowserRouter>
   <GlobalStyle/>
     <S.Wrapper>
       <S.Container>
@@ -73,9 +75,9 @@ function App() {
           <Sidebar/>
         </S.Main>
           <AudioPlayer/>
-        <footer className="footer"/>
       </S.Container>
     </S.Wrapper>
+  </BrowserRouter>  
 </html>
   );
 }
