@@ -5,3 +5,5 @@ export const CategoryPage1 = () => {
       </div>
     );
   }
+  
+  export default CategoryPage1;

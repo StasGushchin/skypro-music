@@ -1,7 +1,7 @@
 import './App.css';
 import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter } from "react-router-dom";
-import { MainPage } from './pages/MainPage/MainPage';
+import { AppRoutes } from './routes';
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -62,8 +62,8 @@ function App() {
   </head>
   <BrowserRouter>
     <GlobalStyle/>
-      <MainPage/>
-  </BrowserRouter>  
+      <AppRoutes/>
+  </BrowserRouter>
 </html>
   );
 }

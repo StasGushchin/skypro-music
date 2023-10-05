@@ -1,8 +1,9 @@
-import AudioPlayer from './components/AudioPlayer/AudioPlayer';
-import NavMenu from './components/NavMenu/NavMenu';
-import Sidebar from './components/Sidebar/Sidebar';
-import Tracklist from './components/Tracklist/Tracklist';
-import * as S from './App.styles'
+import React from "react";
+// import NavMenu from "./components/NavMenu/NavMenu";
+// import AudioPlayer from "../AudioPlayer/AudioPlayer";
+// import Tracklist from "../Track/Tracklist";
+// import Sidebar from "../Sidebar/Sidebar";
+// import * as S from './App.styles'
 
 export const MainPage = () => {
     return (
