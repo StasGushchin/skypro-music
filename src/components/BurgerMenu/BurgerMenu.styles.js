@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { NavLink } from 'react-router-dom';
 
 export const NavBurger = styled.nav`
   width: 20px;
@@ -37,7 +38,7 @@ export const MenuItem = styled.li`
   margin-bottom: 16px;
 `
 
-export const MenuLink = styled.a`
+export const NewNavLink = styled(NavLink)`
   color: #ffffff;
   font-weight: 400;
   font-size: 16px;

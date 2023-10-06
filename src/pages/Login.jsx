@@ -1,7 +1,9 @@
+import * as S from './Login.styles'
+
 export const Login = () => {
     return (
       <div>
-        <h1>Login</h1>
+        <S.Title>Login</S.Title>
       </div>
     );
   }
