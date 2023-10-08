@@ -48,7 +48,7 @@ function Sidebar() {
   return (
     <S.MainSidebar>
       <S.SidebarPersonal>
-        <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+        <S.SidebarPersonalName>Stas Gushchin</S.SidebarPersonalName>
         <S.SidebarIcon
         onClick={() => {
           handleLogOut();
