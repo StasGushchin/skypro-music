@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Sidebar.styles'
+import { useNavigate } from 'react-router-dom'
 
 function Sidebar() {
   const [isVisible, setIsVisible] = useState(false)
@@ -65,11 +66,21 @@ function Sidebar() {
     </S.SidebarList>
   )
 
+  const handleLogOut = () => {
+    localStorage.removeItem("user");
+  };
+
+  const navigate = useNavigate();
+
   return (
     <S.MainSidebar>
       <S.SidebarPersonal>
         <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
-        <S.SidebarIcon>
+        <S.SidebarIcon
+        onClick={() => {
+          handleLogOut();
+          navigate("/login", { replace: false });
+        }}>
           <svg alt="logout">
             <use xlinkHref="img/icon/sprite.svg#logout"></use>
           </svg>

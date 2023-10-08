@@ -8,16 +8,19 @@ import CategoryPage3 from "./pages/CategoryPage3";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Error from "./pages/Error";
+import { ProtectedRoute } from "./ProtectedRoutes/ProtectedRoutes";
 
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage/>} />
-      <Route path="/favorites" element={<Favorites/>} />
-      <Route path="/category1" element={<CategoryPage1/>} />
-      <Route path="/category2" element={<CategoryPage2/>} />
-      <Route path="/category3" element={<CategoryPage3/>} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<MainPage/>} />
+        <Route path="/favorites" element={<Favorites/>} />
+        <Route path="/category1" element={<CategoryPage1/>} />
+        <Route path="/category2" element={<CategoryPage2/>} />
+        <Route path="/category3" element={<CategoryPage3/>} />
+      </Route>
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Registration/>} />
       <Route path="*" element={<Error/>} />
