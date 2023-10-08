@@ -2,13 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Favorites from "./pages/Favorites";
-import CategoryPage1 from "./pages/CategoryPage1";
-import CategoryPage2 from "./pages/CategoryPage2";
-import CategoryPage3 from "./pages/CategoryPage3";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Error from "./pages/Error";
 import { ProtectedRoute } from "./ProtectedRoutes/ProtectedRoutes";
+import Collection from "./pages/Categories";
 
 
 export const AppRoutes = () => {
@@ -17,9 +15,7 @@ export const AppRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<MainPage/>} />
         <Route path="/favorites" element={<Favorites/>} />
-        <Route path="/category1" element={<CategoryPage1/>} />
-        <Route path="/category2" element={<CategoryPage2/>} />
-        <Route path="/category3" element={<CategoryPage3/>} />
+        <Route path="/category/:id" element={<Collection/>} />
       </Route>
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Registration/>} />
