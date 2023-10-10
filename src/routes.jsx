@@ -9,6 +9,11 @@ import { ProtectedRoute } from "./ProtectedRoutes/ProtectedRoutes";
 import Collection from "./pages/Categories";
 
 
+function SignIn() {
+  const [user, setUser] = useState("user", "true")
+
+}
+
 export const AppRoutes = () => {
   return (
     <Routes>
