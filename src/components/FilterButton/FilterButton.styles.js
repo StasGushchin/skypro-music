@@ -19,6 +19,17 @@ export const FilterButton = styled.div`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
+  &:hover {
+    border-color: #d9b6ff;
+    color: #d9b6ff;
+    cursor: pointer;
+  }
+  &:active {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+  }
 `
 
 export const FilterListItems = styled.ul`
@@ -43,4 +54,15 @@ export const FilterList = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 237px;
+    background-color: #4b4949;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
 `

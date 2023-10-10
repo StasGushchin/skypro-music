@@ -3,8 +3,7 @@ import * as S from './FilterButton.styles'
 
 function FilterButton({ title, isOpen, onClick, data }) {
   return (
-    <S.MainCenterblock
-      >
+    <S.MainCenterblock>
       <S.FilterButton className="_btn-text" onClick={onClick}>
         {title}
       </S.FilterButton>

@@ -85,4 +85,5 @@ export const SidebarBlock = styled.div`
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  gap: 30px
 `
