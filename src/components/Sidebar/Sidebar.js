@@ -4,7 +4,7 @@ import * as S from './Sidebar.styles'
 import { useNavigate } from 'react-router-dom'
 import cardImages from './CardImages'
 
-function Sidebar() {
+function Sidebar({removeAuth}) {
   const [isVisible, setIsVisible] = useState(false)
 
   setTimeout(() => {
@@ -39,21 +39,20 @@ function Sidebar() {
     )
   );
 
-  const handleLogOut = () => {
-    localStorage.removeItem("user");
-  };
+  // const handleLogOut = () => {
+  //   localStorage.removeItem("user");
+  // };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <S.MainSidebar>
       <S.SidebarPersonal>
         <S.SidebarPersonalName>Stas Gushchin</S.SidebarPersonalName>
         <S.SidebarIcon
-        onClick={() => {
-          handleLogOut();
-          navigate("/login", { replace: false });
-        }}>
+        onClick={
+          removeAuth
+        }>
           <svg alt="logout">
             <use xlinkHref="img/icon/sprite.svg#logout"></use>
           </svg>

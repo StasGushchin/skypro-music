@@ -4,7 +4,6 @@ import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import Tracklist from "../components/Tracklist/Tracklist";
 import Sidebar from "../components/Sidebar/Sidebar";
 import * as S from '../App.styles'
-import { getAllTracks } from "../api";
 
 export const MainPage = () => {
 

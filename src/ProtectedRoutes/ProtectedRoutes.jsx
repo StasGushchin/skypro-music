@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-export function ProtectedRoute({ redirectPath = "/login" }) {
-  if (!localStorage.user) {
+export function ProtectedRoute({ user, redirectPath = "/login" }) {
+  if (!user) {
     return <Navigate to={redirectPath} replace />;
   }
 

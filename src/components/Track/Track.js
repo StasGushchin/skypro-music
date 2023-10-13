@@ -9,14 +9,14 @@ function Track() {
     setIsVisible(true)
   }, 4000)
 
-  const [tracks, setTrack] = useState(null)
+  // const [tracks, setTrack] = useState(null)
 
-  useEffect(() => {
-    getAllTracks()
-      .then((tracks) => {
-      setTrack(tracks);
-    });
-    }, []);
+  // useEffect(() => {
+  //   getAllTracks()
+  //     .then((tracks) => {
+  //     setTrack(tracks);
+  //   });
+  //   }, []);
     
   let TrackItem = isVisible ? (
   <S.ContentPlaylist>  
