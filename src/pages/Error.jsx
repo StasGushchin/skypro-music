@@ -1,7 +1,9 @@
+import * as S from './Favorites.styles'
+
 export const Error = () => {
     return (
       <div>
-        <h1>404 Страница не найдена</h1>
+        <S.Title>404 Страница не найдена</S.Title>
       </div>
     );
   }
