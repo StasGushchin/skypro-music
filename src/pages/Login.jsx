@@ -5,9 +5,9 @@ export const Login = ({ setAuth }) => {
   return (
     <div>
       <S.Title>Login</S.Title>
-        <button onClick={() => {
-        setAuth;
-        Navigate("/", { replace: true })}}>Войти</button>
+        <button onClick={
+        setAuth
+        }>Войти</button>
     </div>
   )
 }
