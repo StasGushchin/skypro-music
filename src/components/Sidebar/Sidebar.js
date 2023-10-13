@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Sidebar.styles'
-import { useNavigate } from 'react-router-dom'
 import cardImages from './CardImages'
 
 function Sidebar({removeAuth}) {
@@ -39,11 +38,6 @@ function Sidebar({removeAuth}) {
     )
   );
 
-  // const handleLogOut = () => {
-  //   localStorage.removeItem("user");
-  // };
-
-  // const navigate = useNavigate();
 
   return (
     <S.MainSidebar>
