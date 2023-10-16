@@ -5,7 +5,7 @@ import Tracklist from "../components/Tracklist/Tracklist";
 import Sidebar from "../components/Sidebar/Sidebar";
 import * as S from '../App.styles'
 
-export const MainPage = () => {
+export const MainPage = ({removeAuth}) => {
 
     return (
     <S.Wrapper>
@@ -13,7 +13,7 @@ export const MainPage = () => {
         <S.Main>
           <NavMenu/>
           <Tracklist/>
-          <Sidebar/>
+          <Sidebar removeAuth={removeAuth}/>
         </S.Main>
           <AudioPlayer/>
       </S.Container>

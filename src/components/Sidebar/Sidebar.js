@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Sidebar.styles'
 import cardImages from './CardImages'
+import { useNavigate } from 'react-router-dom'
 
 function Sidebar({removeAuth}) {
   const [isVisible, setIsVisible] = useState(false)
@@ -38,14 +39,16 @@ function Sidebar({removeAuth}) {
     )
   );
 
-
-  return (
+  const navigate = useNavigate()
+  return (  
     <S.MainSidebar>
       <S.SidebarPersonal>
         <S.SidebarPersonalName>Stas Gushchin</S.SidebarPersonalName>
         <S.SidebarIcon
-        onClick={
-          removeAuth
+        onClick={() => {
+          removeAuth();
+          navigate('/', { replace: false })
+        }
         }>
           <svg alt="logout">
             <use xlinkHref="img/icon/sprite.svg#logout"></use>

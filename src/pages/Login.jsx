@@ -9,7 +9,7 @@ const navigate = useNavigate()
       <button onClick={() => {
         setAuth();
         navigate('/', { replace: false })
-      }
+        }
       }>Войти</button>
     </div>
   )

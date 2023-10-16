@@ -26,7 +26,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<ProtectedRoute user={user} />}>
-        <Route path="/" element={<MainPage/>} />
+        <Route path="/" element={<MainPage removeAuth={removeAuth}/>} />
         <Route path="/favorites" element={<Favorites/>} />
         <Route path="/category/:id" element={<Collection/>} />
       </Route>
