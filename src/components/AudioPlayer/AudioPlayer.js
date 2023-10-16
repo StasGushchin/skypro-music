@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './AudioPlayer.styles'
 
-function AudioPlayer() {
+function AudioPlayer({activeTrack}) {
   const [isVisible, setIsVisible] = useState(false)
-
+console.log(activeTrack)
   setTimeout(() => {
     setIsVisible(true)
   }, 4000)

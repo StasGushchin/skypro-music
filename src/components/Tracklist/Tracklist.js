@@ -2,7 +2,7 @@ import Filter from '../Filter/Filter'
 import Track from '../Track/Track'
 import * as S from './Tracklist.styles'
 
-function Tracklist() {
+function Tracklist({setActiveTrack}) {
 
   return (
     <S.MainCenterblock>
@@ -31,7 +31,7 @@ function Tracklist() {
             </S.PlaylistTitle>
           </S.PlaylistTitleTime>
         </S.ContentTitle>
-          <Track/>
+          <Track setActiveTrack={setActiveTrack}/>
       </S.CenterBlock>
     </S.MainCenterblock>
   )

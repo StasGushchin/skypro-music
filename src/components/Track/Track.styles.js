@@ -9,6 +9,7 @@ export const ContentPlaylist = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
+
 `
 
 export const PlaylistTrack = styled.div`
@@ -25,6 +26,7 @@ export const PlaylistTrack = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  
 `
 
 export const TrackTitle = styled.div`
@@ -130,6 +132,7 @@ export const TrackTimeText = styled.span`
   line-height: 24px;
   text-align: right;
   color: #696969;
+  margin-bottom: 12px;
 `
 
 export const TrackTitleImageSkeleton = styled.div`
@@ -150,6 +153,7 @@ export const PlayListTrack = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-bottom: 12px;
 `
 
 export const PlaylistItem = styled.div`

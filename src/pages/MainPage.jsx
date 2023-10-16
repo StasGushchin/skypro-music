@@ -7,15 +7,18 @@ import * as S from '../App.styles'
 
 export const MainPage = ({removeAuth}) => {
 
+const [activeTrack, setActiveTrack] = useState(null);
+
+
     return (
     <S.Wrapper>
       <S.Container>
         <S.Main>
           <NavMenu/>
-          <Tracklist/>
+          <Tracklist setActiveTrack={setActiveTrack}/>
           <Sidebar removeAuth={removeAuth}/>
         </S.Main>
-          <AudioPlayer/>
+          <AudioPlayer activeTrack={activeTrack}/>
       </S.Container>
     </S.Wrapper>
 
