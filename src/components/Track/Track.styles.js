@@ -9,7 +9,7 @@ export const ContentPlaylist = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
-
+  gap: 12px;
 `
 
 export const PlaylistTrack = styled.div`
@@ -26,7 +26,7 @@ export const PlaylistTrack = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  
+  gap: 12px;
 `
 
 export const TrackTitle = styled.div`
@@ -154,6 +154,7 @@ export const PlayListTrack = styled.div`
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 12px;
+  gap: 12px;
 `
 
 export const PlaylistItem = styled.div`
