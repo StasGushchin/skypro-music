@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { NavLink } from 'react-router-dom';
 
 export const SidebarList = styled.div`
   display: -webkit-box;
@@ -19,9 +20,10 @@ export const SidebarItem = styled.div`
   
     &:not(:last-child) {
     margin-bottom: 30px;
+    }
 `
 
-export const SidebarLink = styled.a`
+export const NewNavLink = styled(NavLink)`
   width: 100%;
   height: 100%;
 `
@@ -83,4 +85,5 @@ export const SidebarBlock = styled.div`
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  gap: 30px
 `

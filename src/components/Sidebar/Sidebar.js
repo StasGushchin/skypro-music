@@ -1,75 +1,55 @@
 import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Sidebar.styles'
+import cardImages from './CardImages'
+import { useNavigate } from 'react-router-dom'
 
-function Sidebar() {
+function Sidebar({removeAuth}) {
   const [isVisible, setIsVisible] = useState(false)
 
   setTimeout(() => {
     setIsVisible(true)
   }, 4000)
 
-  let SideBarItem = isVisible ? (
-    <S.SidebarList>
-      <S.SidebarItem>
-        <S.SidebarLink href="#">
-          <S.SidebarImg
-            src="img/playlist01.png"
-            alt="day's playlist"
+  let SideBarItem = cardImages.map((cardImage) =>
+    isVisible ? 
+    (
+      <S.SidebarList>
+        <S.SidebarItem>
+          <S.NewNavLink to={`/category/${cardImage.id}`}>
+            <S.SidebarImg
+              src={cardImage.src}
+              key={cardImage.id}
+              alt="day's playlist"
+            />
+          </S.NewNavLink>
+        </S.SidebarItem>
+      </S.SidebarList>
+    ) : (
+      <S.SidebarList>
+  
+        <S.SidebarItem>
+          <Skeleton
+          width={250}
+          height={150}
           />
-        </S.SidebarLink>
-      </S.SidebarItem>
+        </S.SidebarItem>
+        
+      </S.SidebarList>
+    )
+  );
 
-      <S.SidebarItem>
-        <S.SidebarLink href="#">
-          <S.SidebarImg
-            src="img/playlist02.png"
-            alt="day's playlist"
-          />
-        </S.SidebarLink>
-      </S.SidebarItem>
-
-      <S.SidebarItem>
-        <S.SidebarLink href="#">
-          <S.SidebarImg
-            src="img/playlist03.png"
-            alt="day's playlist"
-          />
-        </S.SidebarLink>
-      </S.SidebarItem>
-    </S.SidebarList>
-  ) : (
-    <S.SidebarList>
-
-      <S.SidebarItem>
-        <Skeleton
-        width={250}
-        height={150}
-        />
-      </S.SidebarItem>
-
-      <S.SidebarItem>
-        <Skeleton
-        width={250}
-        height={150}
-        />
-      </S.SidebarItem>
-
-      <S.SidebarItem>
-        <Skeleton
-        width={250}
-        height={150}
-        />
-      </S.SidebarItem>
-      
-    </S.SidebarList>
-  )
-
-  return (
+  const navigate = useNavigate()
+  return (  
     <S.MainSidebar>
       <S.SidebarPersonal>
-        <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
-        <S.SidebarIcon>
+        <S.SidebarPersonalName>Stas Gushchin</S.SidebarPersonalName>
+        <S.SidebarIcon
+        onClick={() => {
+          removeAuth();
+          navigate('/', { replace: false })
+        }
+        }>
           <svg alt="logout">
             <use xlinkHref="img/icon/sprite.svg#logout"></use>
           </svg>

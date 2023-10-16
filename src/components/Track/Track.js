@@ -9,6 +9,15 @@ function Track() {
     setIsVisible(true)
   }, 4000)
 
+  // const [tracks, setTrack] = useState(null)
+
+  // useEffect(() => {
+  //   getAllTracks()
+  //     .then((tracks) => {
+  //     setTrack(tracks);
+  //   });
+  //   }, []);
+    
   let TrackItem = isVisible ? (
   <S.ContentPlaylist>  
     <S.PlaylistTrack>
@@ -42,6 +51,16 @@ function Track() {
       </S.TrackTime>
     </S.PlaylistTrack>
   </S.ContentPlaylist>  
+  // tracks.map((list) => (
+  //   <PlayListItemRender
+  //     key={list.id}
+  //     listName={list.name}
+  //     listAuthor={list.author}
+  //     listAlbum={list.album}
+  //     ListDuration_in_seconds={list.duration_in_seconds}
+  //     listUrl={list.track_file}
+  //   />
+  // ))
   ) : (
     <S.PlayListTrack>
       <Skeleton

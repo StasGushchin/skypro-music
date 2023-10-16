@@ -16,19 +16,19 @@ function BurgerMenu() {
         <S.NavMenu>
           <S.MenuList>
             <S.MenuItem>
-              <S.MenuLink href="#">
+              <S.NewNavLink to="/">
                 Главное
-              </S.MenuLink>
+              </S.NewNavLink>
             </S.MenuItem>
             <S.MenuItem>
-              <S.MenuLink href="#">
+              <S.NewNavLink to="/favorites">
                 Мой плейлист
-              </S.MenuLink>
+              </S.NewNavLink>
             </S.MenuItem>
             <S.MenuItem>
-              <S.MenuLink href="../signin.html">
+              <S.NewNavLink to="/login">
                 Войти
-              </S.MenuLink>
+              </S.NewNavLink>
             </S.MenuItem>
           </S.MenuList>
         </S.NavMenu>
