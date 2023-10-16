@@ -27,7 +27,7 @@ function Track({setActiveTrack}) {
   
     <S.PlaylistItem>
       
-      {tracks ? tracks.map((list) => (
+    {isVisible ? tracks.map((list) => (
     <div
       onClick={() => onTrackClick(list) }
     >
@@ -67,6 +67,7 @@ function Track({setActiveTrack}) {
   </S.ContentPlaylist>  
     </div>
   )) : (
+    <S.ContentPlaylist> 
       <S.PlayListTrack>
         <Skeleton
           padding={0}
@@ -89,7 +90,8 @@ function Track({setActiveTrack}) {
           height={19}
         />
       </S.PlayListTrack>
-    )} 
+      </S.ContentPlaylist>
+    )}
 
     </S.PlaylistItem>
   )
