@@ -4,10 +4,18 @@ import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import Tracklist from "../components/Tracklist/Tracklist";
 import Sidebar from "../components/Sidebar/Sidebar";
 import * as S from '../App.styles'
+import { getEntireTrack } from "../api";
 
 export const MainPage = ({removeAuth}) => {
 
 const [activeTrack, setActiveTrack] = useState(null);
+const [entireTrack, setEntireTrack] = useState([])
+
+useEffect(() => {
+  if (activeTrack) {
+    getEntireTrack(setEntireTrack, activeTrack);
+  }
+}, [activeTrack]);
 
 
     return (
@@ -18,7 +26,7 @@ const [activeTrack, setActiveTrack] = useState(null);
           <Tracklist setActiveTrack={setActiveTrack}/>
           <Sidebar removeAuth={removeAuth}/>
         </S.Main>
-          <AudioPlayer activeTrack={activeTrack}/>
+          {activeTrack ? <AudioPlayer entireTrack={entireTrack} /> : null}
       </S.Container>
     </S.Wrapper>
 

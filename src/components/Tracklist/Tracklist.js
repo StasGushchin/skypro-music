@@ -4,6 +4,7 @@ import * as S from './Tracklist.styles'
 
 function Tracklist({setActiveTrack}) {
 
+
   return (
     <S.MainCenterblock>
       <S.CenterblockSearch>
@@ -31,7 +32,9 @@ function Tracklist({setActiveTrack}) {
             </S.PlaylistTitle>
           </S.PlaylistTitleTime>
         </S.ContentTitle>
-          <Track setActiveTrack={setActiveTrack}/>
+          <Track 
+          setActiveTrack={setActiveTrack}
+          />
       </S.CenterBlock>
     </S.MainCenterblock>
   )

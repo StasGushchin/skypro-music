@@ -5,7 +5,7 @@ import { getAllTracks } from '../../api'
 
 function Track({setActiveTrack}) {
   const [isVisible, setIsVisible] = useState(false)
-  const onTrackClick = (track) => {
+  const onClickTrack = (track) => {
     setActiveTrack(track)
   }
 
@@ -22,14 +22,16 @@ function Track({setActiveTrack}) {
     });
     }, []);
 
-  // Сверстать компонент трека и добваить скелетон
   return (
   
     <S.PlaylistItem>
       
     {isVisible ? tracks.map((list) => (
     <div
-      onClick={() => onTrackClick(list) }
+    onClick={(e) => {
+      e.preventDefault();
+      onClickTrack(list.id);
+    }}
     >
   <S.ContentPlaylist>  
     <S.PlaylistTrack>
