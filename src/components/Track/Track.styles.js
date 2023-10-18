@@ -159,6 +159,8 @@ export const PlayListTrack = styled.div`
 
 export const PlaylistItem = styled.div`
   width: 100%;
-  display: block;
+  display: flex;
   margin-bottom: 12px;
+  flex-direction: column;
+  gap: 12px;
 `

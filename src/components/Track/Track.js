@@ -27,6 +27,7 @@ function Track({setActiveTrack}) {
     <S.PlaylistItem>
       
     {isVisible ? tracks.map((list) => (
+      
     <div
     onClick={(e) => {
       e.preventDefault();
