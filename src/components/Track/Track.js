@@ -20,6 +20,7 @@ function Track({setActiveTrack}) {
       .then((tracks) => {
       setTrack(tracks);
     });
+    
     }, []);
 
   return (
