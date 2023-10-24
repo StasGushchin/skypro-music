@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './AudioPlayer.styles'
 
-function AudioPlayer() {
+function AudioPlayer({entireTrack}) {
   const [isVisible, setIsVisible] = useState(false)
 
   setTimeout(() => {
@@ -19,13 +19,17 @@ function AudioPlayer() {
 
       <S.TrackPlayAuthor>
         <S.TrackPlayAuthorLink href="http://">
-          Ты та...
+        {entireTrack.name !== "-"
+        ? `${entireTrack.name.slice(0, 6)} . . .`
+        : " -"}
         </S.TrackPlayAuthorLink>
       </S.TrackPlayAuthor>
 
       <S.TrackPlayAlbum>
         <S.TrackPlayAlbumLink href="http://">
-          Баста
+        {entireTrack.author !== "-"
+        ? `${entireTrack.author.slice(0, 3)} . . .`
+        : " -"}
         </S.TrackPlayAlbumLink>
       </S.TrackPlayAlbum>
     </S.TrackPlayContain>

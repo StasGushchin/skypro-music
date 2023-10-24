@@ -23,7 +23,7 @@ export const SidebarItem = styled.div`
     }
 `
 
-export const NewNavLink = styled(NavLink)`
+export const SidebarNavLink = styled(NavLink)`
   width: 100%;
   height: 100%;
 `

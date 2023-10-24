@@ -16,13 +16,13 @@ function Sidebar({removeAuth}) {
     (
       <S.SidebarList>
         <S.SidebarItem>
-          <S.NewNavLink to={`/category/${cardImage.id}`}>
+          <S.SidebarNavLink to={`/category/${cardImage.id}`}>
             <S.SidebarImg
               src={cardImage.src}
               key={cardImage.id}
               alt="day's playlist"
             />
-          </S.NewNavLink>
+          </S.SidebarNavLink>
         </S.SidebarItem>
       </S.SidebarList>
     ) : (
@@ -47,7 +47,7 @@ function Sidebar({removeAuth}) {
         <S.SidebarIcon
         onClick={() => {
           removeAuth();
-          navigate('/', { replace: false })
+          navigate('/login', { replace: false })
         }
         }>
           <svg alt="logout">
