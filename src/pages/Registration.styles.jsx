@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   overflow: hidden;
 `
 
-export const ContainerEnter = styled.div`
+export const ContainerSignUp = styled.div`
   max-width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -23,7 +23,7 @@ export const ModalBlock = styled.div`
   opacity: 1;
 `
 
-export const ModalFormLogin = styled.form`
+export const ModalFormLogin = styled.div`
   width: 366px;
   height: 439px;
   background-color: #ffffff;
@@ -38,7 +38,10 @@ export const ModalFormLogin = styled.form`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 43px 47px 47px 40px;
+  padding: 43px 44px 47px 40px;
+  &input:first-child {
+    margin-bottom: 30px;
+  }
 `
 
 export const ModalLogo = styled.div`
@@ -55,6 +58,9 @@ export const ModalInput = styled.input`
   border-right: none;
   border-bottom: 1px solid #d0cece;
   padding: 8px 1px;
+  margin-right: 3px;
+  margin-bottom: 30px;
+
   &::-webkit-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -63,6 +69,7 @@ export const ModalInput = styled.input`
     letter-spacing: -0.05px;
     color: #d0cece;
   }
+
   &:-ms-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -71,6 +78,7 @@ export const ModalInput = styled.input`
     letter-spacing: -0.05px;
     color: #d0cece;
   }
+
   &::-ms-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -79,6 +87,7 @@ export const ModalInput = styled.input`
     letter-spacing: -0.05px;
     color: #d0cece;
   }
+
   &::placeholder {
     font-style: normal;
     font-weight: 400;
@@ -89,14 +98,14 @@ export const ModalInput = styled.input`
   }
 `
 
-export const ModalBtnEnter = styled.button`
+export const ModalBtnSignUpEnt = styled.button`
   width: 278px;
-  height: 52px;
+  height: 62px;
   background-color: #580ea2;
   border-radius: 6px;
-  margin-top: 60px;
-  margin-bottom: 20px;
+  margin-left: 4px;
   border: none;
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,48 +124,6 @@ export const ModalBtnEnter = styled.button`
     line-height: 24px;
     letter-spacing: -0.05px;
     color: #ffffff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-`
-
-export const ModalBtnSignUpNavLink = styled(NavLink)`
-  width: 278px;
-  height: 52px;
-  background-color: transparent;
-  border: 1px solid #d0cece;
-  border-radius: 6px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: -0.05px;
-  color: #000000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  & a {
-    width: 100%;
-    height: 100%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.05px;
-    color: #000000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
