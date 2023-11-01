@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Track.styles'
 import { getAllTracks } from '../../api'
@@ -23,6 +23,21 @@ function Track({setActiveTrack}) {
     
     }, []);
 
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const ref = useRef(null);
+
+    function handleClick() {
+        const nextIsPlaying = !isPlaying;
+        setIsPlaying(nextIsPlaying);
+
+        if (nextIsPlaying) {
+            ref.current.play();
+        } else {
+            ref.current.pause();
+        }
+    }
+
   return (
   
     <S.PlaylistItem>
@@ -45,7 +60,19 @@ function Track({setActiveTrack}) {
         </S.TrackTitleImage>
         <S.TrackTitleText>
           <S.TrackTitleLink href="http://">
-            {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
+            <button onClick={handleClick}>
+              {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
+            </button>
+            <audio
+                ref={ref}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+            >
+              <source
+                    src={list.track_file}
+                    type="audio/mp3"
+                />
+            </audio>
           </S.TrackTitleLink>
         </S.TrackTitleText>
       </S.TrackTitle>
