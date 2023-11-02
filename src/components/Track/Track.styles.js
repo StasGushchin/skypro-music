@@ -164,3 +164,9 @@ export const PlaylistItem = styled.div`
   flex-direction: column;
   gap: 12px;
 `
+
+export const ButtonTrack = styled.button`
+  background-color: transparent;
+  color: #FFF;
+  border: 0;
+`

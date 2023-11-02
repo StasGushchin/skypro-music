@@ -60,18 +60,16 @@ function Track({setActiveTrack}) {
         </S.TrackTitleImage>
         <S.TrackTitleText>
           <S.TrackTitleLink href="http://">
-            <button onClick={handleClick}>
+            <S.ButtonTrack onClick={handleClick}>
               {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
-            </button>
+            </S.ButtonTrack>
             <audio
-                ref={ref}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+              ref={ref}  
             >
               <source
-                    src={list.track_file}
-                    type="audio/mp3"
-                />
+                src={list.track_file}
+                type="audio/mp3"
+              />
             </audio>
           </S.TrackTitleLink>
         </S.TrackTitleText>

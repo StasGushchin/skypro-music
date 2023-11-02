@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './AudioPlayer.styles'
 
@@ -8,6 +8,21 @@ function AudioPlayer({entireTrack}) {
   setTimeout(() => {
     setIsVisible(true)
   }, 4000)
+
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
+
+  function handleClick() {
+      const nextIsPlaying = !isPlaying;
+      setIsPlaying(nextIsPlaying);
+
+      if (nextIsPlaying) {
+          ref.current.play();
+      } else {
+          ref.current.pause();
+      }
+  }
 
   let AudioPlayerItem = isVisible ? (
     <S.TrackPlayContain>
@@ -74,7 +89,9 @@ function AudioPlayer({entireTrack}) {
               </S.PlayerBtnPrev>
               <S.PlayerBtnPlay>
                 <S.PlayerBtnPlaySvg alt="play">
-                  <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
+                  <button onClick={handleClick}>
+                  <img src={isPlaying ? "img/icon/sprite.svg#icon-pause" : "img/icon/sprite.svg#icon-play"}></img>
+                </button>
                 </S.PlayerBtnPlaySvg>
               </S.PlayerBtnPlay>
               <S.PlayerBtnNext>
