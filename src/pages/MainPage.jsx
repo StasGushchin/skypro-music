@@ -10,6 +10,8 @@ export const MainPage = ({removeAuth}) => {
 
 const [activeTrack, setActiveTrack] = useState(null);
 const [entireTrack, setEntireTrack] = useState([])
+const [trackId, setTrackId] = useState(null);
+
 
 useEffect(() => {
   if (activeTrack) {
@@ -23,10 +25,10 @@ useEffect(() => {
       <S.Container>
         <S.Main>
           <NavMenu/>
-          <Tracklist setActiveTrack={setActiveTrack}/>
+          <Tracklist setTrackId={setTrackId} setActiveTrack={setActiveTrack}/>
           <Sidebar removeAuth={removeAuth}/>
         </S.Main>
-          {activeTrack ? <AudioPlayer entireTrack={entireTrack} /> : null}
+          {activeTrack ? <AudioPlayer trackId={trackId} entireTrack={entireTrack} /> : null}
       </S.Container>
     </S.Wrapper>
 

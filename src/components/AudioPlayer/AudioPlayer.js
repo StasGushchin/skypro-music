@@ -1,27 +1,36 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './AudioPlayer.styles'
+import { getEntireTrack } from '../../api'
 
-function AudioPlayer({entireTrack}) {
+function AudioPlayer({ entireTrack, trackId }) {
   const [isVisible, setIsVisible] = useState(false)
+  const [trackData, setTrackData] = useState(null)
 
-  setTimeout(() => {
-    setIsVisible(true)
-  }, 4000)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const ref = useRef(null)
 
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const ref = useRef(null);
+  useEffect(() => {
+    setIsVisible(false)
+    getEntireTrack(trackId).then((data) => {
+      setTrackData(data)
+      console.log(data)
+      setIsVisible(true)
+    })
+    return () => {
+      setIsPlaying(true)
+    }
+  }, [trackId])
 
   function handleClick() {
-      const nextIsPlaying = !isPlaying;
-      setIsPlaying(nextIsPlaying);
+    const nextIsPlaying = !isPlaying
+    setIsPlaying(nextIsPlaying)
 
-      if (nextIsPlaying) {
-          ref.current.play();
-      } else {
-          ref.current.pause();
-      }
+    if (nextIsPlaying) {
+      ref.current.play()
+    } else {
+      ref.current.pause()
+    }
   }
 
   let AudioPlayerItem = isVisible ? (
@@ -34,49 +43,44 @@ function AudioPlayer({entireTrack}) {
 
       <S.TrackPlayAuthor>
         <S.TrackPlayAuthorLink href="http://">
-        {entireTrack.name !== "-"
-        ? `${entireTrack.name.slice(0, 6)} . . .`
-        : " -"}
+          {trackData.name !== '-'
+            ? `${trackData.name.slice(0, 6)} . . .`
+            : ' -'}
         </S.TrackPlayAuthorLink>
       </S.TrackPlayAuthor>
 
       <S.TrackPlayAlbum>
         <S.TrackPlayAlbumLink href="http://">
-        {entireTrack.author !== "-"
-        ? `${entireTrack.author.slice(0, 3)} . . .`
-        : " -"}
+          {trackData.author !== '-'
+            ? `${trackData.author.slice(0, 3)} . . .`
+            : ' -'}
         </S.TrackPlayAlbumLink>
       </S.TrackPlayAlbum>
     </S.TrackPlayContain>
   ) : (
     <S.TrackPlayContain>
-
       <S.TrackPlayImage>
-        <Skeleton
-          width={51}
-          height={51}
-        />
+        <Skeleton width={51} height={51} />
       </S.TrackPlayImage>
 
       <S.TrackPlayAuthor>
-        <Skeleton
-          width={59}
-          height={15}
-      />
+        <Skeleton width={59} height={15} />
       </S.TrackPlayAuthor>
 
       <S.TrackPlayAlbum>
-        <Skeleton
-        width={59}
-        height={15}
-      />
+        <Skeleton width={59} height={15} />
       </S.TrackPlayAlbum>
-      
     </S.TrackPlayContain>
   )
 
   return (
     <S.Bar>
+      <audio
+        ref={ref}
+        src={trackData?.track_file}
+        type="audio/mp3"
+        autoPlay={true}
+      ></audio>
       <S.BarContent>
         <S.BarPlayerProgress></S.BarPlayerProgress>
         <S.BarPlayerBlock>
@@ -88,10 +92,21 @@ function AudioPlayer({entireTrack}) {
                 </S.PlayerBtnPrevSvg>
               </S.PlayerBtnPrev>
               <S.PlayerBtnPlay>
-                <S.PlayerBtnPlaySvg alt="play">
-                  <button onClick={handleClick}>
-                  <img src={isPlaying ? "img/icon/sprite.svg#icon-pause" : "img/icon/sprite.svg#icon-play"}></img>
-                </button>
+                <S.PlayerBtnPlaySvg alt="play" onClick={handleClick}>
+                  {isPlaying ? (
+                    <svg
+                      width="15"
+                      height="19"
+                      viewBox="0 0 15 19"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="5" height="19" fill="#D9D9D9" />
+                      <rect x="10" width="5" height="19" fill="#D9D9D9" />
+                    </svg>
+                  ) : (
+                    <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
+                  )}
                 </S.PlayerBtnPlaySvg>
               </S.PlayerBtnPlay>
               <S.PlayerBtnNext>
@@ -112,7 +127,6 @@ function AudioPlayer({entireTrack}) {
             </S.PlayerControls>
 
             <S.PlayerTrackPlay>
-              
               {AudioPlayerItem}
 
               <S.TrackPlayLikeDis>
@@ -137,10 +151,7 @@ function AudioPlayer({entireTrack}) {
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine
-                  type="range"
-                  name="range"
-                />
+                <S.VolumeProgressLine type="range" name="range" />
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>

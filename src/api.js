@@ -8,7 +8,7 @@ export async function getAllTracks() {
     return tracks;
 }
 
-export function getEntireTrack(onSavedAction, id) {
+export function getEntireTrack(id) {
     try {
       return fetch(`https://skypro-music-api.skyeng.tech/catalog/track/${id}`, {
         method: "GET",
@@ -17,7 +17,7 @@ export function getEntireTrack(onSavedAction, id) {
         return response.json();
       })
       .then((data) => {
-        onSavedAction(data);
+        return data
       })
 
     } catch (error) {

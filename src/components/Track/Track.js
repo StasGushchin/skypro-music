@@ -3,7 +3,7 @@ import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Track.styles'
 import { getAllTracks } from '../../api'
 
-function Track({setActiveTrack}) {
+function Track({setActiveTrack, setTrackId}) {
   const [isVisible, setIsVisible] = useState(false)
   const onClickTrack = (track) => {
     setActiveTrack(track)
@@ -15,6 +15,11 @@ function Track({setActiveTrack}) {
 
   const [tracks, setTrack] = useState(null)
 
+
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
+
   useEffect(() => {
     getAllTracks()
       .then((tracks) => {
@@ -22,20 +27,17 @@ function Track({setActiveTrack}) {
     });
     
     }, []);
-
-
-    const [isPlaying, setIsPlaying] = useState(false);
-    const ref = useRef(null);
-
+  
+  
     function handleClick() {
         const nextIsPlaying = !isPlaying;
         setIsPlaying(nextIsPlaying);
 
-        if (nextIsPlaying) {
-            ref.current.play();
-        } else {
-            ref.current.pause();
-        }
+        // if (nextIsPlaying) {
+        //     ref.current.play();
+        // } else {
+        //     ref.current.pause();
+        // }
     }
 
   return (
@@ -60,17 +62,12 @@ function Track({setActiveTrack}) {
         </S.TrackTitleImage>
         <S.TrackTitleText>
           <S.TrackTitleLink href="http://">
-            <S.ButtonTrack onClick={handleClick}>
+            <S.ButtonTrack onClick={() => {
+              setTrackId(list.id)
+            }}>
               {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
             </S.ButtonTrack>
-            <audio
-              ref={ref}  
-            >
-              <source
-                src={list.track_file}
-                type="audio/mp3"
-              />
-            </audio>
+            
           </S.TrackTitleLink>
         </S.TrackTitleText>
       </S.TrackTitle>
