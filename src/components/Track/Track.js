@@ -57,7 +57,9 @@ function Track({setActiveTrack, setTrackId}) {
       <S.TrackTitle>
         <S.TrackTitleImage>
           <S.TrackTitleSvg alt="music">
-            <use href="img/icon/sprite.svg#icon-note"></use>
+            <use href="img/icon/sprite.svg#icon-note" onClick={() => {
+              setTrackId(list.id)
+            }}></use>
           </S.TrackTitleSvg>
         </S.TrackTitleImage>
         <S.TrackTitleText>

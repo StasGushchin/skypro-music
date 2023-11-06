@@ -331,5 +331,7 @@ export const VolumeProgress = styled.div`
   cursor: pointer;
 `
 
-export const VolumeProgressLine = styled(VolumeProgress)``
-
+export const VolumeProgressLine = styled.input`
+  width: 109px;
+  cursor: pointer;
+`

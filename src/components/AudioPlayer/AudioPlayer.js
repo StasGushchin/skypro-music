@@ -6,7 +6,6 @@ import { getEntireTrack } from '../../api'
 function AudioPlayer({ entireTrack, trackId }) {
   const [isVisible, setIsVisible] = useState(false)
   const [trackData, setTrackData] = useState(null)
-
   const [isPlaying, setIsPlaying] = useState(true)
   const ref = useRef(null)
 
@@ -151,7 +150,7 @@ function AudioPlayer({ entireTrack, trackId }) {
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" name="range" />
+                <S.VolumeProgressLine type="range" id="volume" name="volume" min="0" max="100"/>
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>
