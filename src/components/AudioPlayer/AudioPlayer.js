@@ -2,12 +2,17 @@ import React, { useState, useRef, useEffect } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './AudioPlayer.styles'
 import { getEntireTrack } from '../../api'
+import ProgressBar from '../ProgressBar/ProgressBar'
 
 function AudioPlayer({ entireTrack, trackId }) {
   const [isVisible, setIsVisible] = useState(false)
   const [trackData, setTrackData] = useState(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const ref = useRef(null)
+  const audioRef = useRef(null);
+  const setVolume = value => audioRef.current.volume = value;
+  const loopRef = useRef(false)
+  const setLoop = value => audioRef.current.loop = value;
 
   useEffect(() => {
     setIsVisible(false)
@@ -81,7 +86,7 @@ function AudioPlayer({ entireTrack, trackId }) {
         autoPlay={true}
       ></audio>
       <S.BarContent>
-        <S.BarPlayerProgress></S.BarPlayerProgress>
+        <ProgressBar></ProgressBar>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -150,7 +155,15 @@ function AudioPlayer({ entireTrack, trackId }) {
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" id="volume" name="volume" min="0" max="100"/>
+                <S.VolumeProgressLine 
+                type="range" 
+                id="volume" 
+                name="volume" 
+                min="0" 
+                max="100" 
+                step="0.01" 
+                defaultValue="1"
+                onChange={e => setVolume(e.target.value)}/>
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>
