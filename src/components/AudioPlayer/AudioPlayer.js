@@ -4,36 +4,70 @@ import * as S from './AudioPlayer.styles'
 import { getEntireTrack } from '../../api'
 import ProgressBar from '../ProgressBar/ProgressBar'
 
+
+function secondsToTimeString(seconds) {
+  return (
+    Math.floor(Math.round(seconds) / 60)
+      .toString()
+      .padStart(2, '0') +
+    ':' +
+    (Math.round(seconds) % 60).toString().padStart(2, '0')
+  )
+}
+
 function AudioPlayer({ entireTrack, trackId }) {
   const [isVisible, setIsVisible] = useState(false)
   const [trackData, setTrackData] = useState(null)
   const [isPlaying, setIsPlaying] = useState(true)
-  const ref = useRef(null)
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isLoop, setIsLooped] = useState(false);
+  const [volume, setVolume] = useState(30)
   const audioRef = useRef(null);
-  const setVolume = value => audioRef.current.volume = value;
-  const loopRef = useRef(false)
-  const setLoop = value => audioRef.current.loop = value;
 
   useEffect(() => {
+    const handleTimeUpdateEvent = () => {
+      if (audioRef.current.currentTime) {
+        setCurrentTime(audioRef.current.currentTime);
+        setDuration(audioRef.current.duration);
+        console.log(audioRef.current.currentTime);
+      } else {
+        setCurrentTime(0);
+        setDuration(0);
+      }
+    }
+
+    audioRef?.current.addEventListener("timeupdate", handleTimeUpdateEvent);
     setIsVisible(false)
     getEntireTrack(trackId).then((data) => {
       setTrackData(data)
-      console.log(data)
       setIsVisible(true)
     })
     return () => {
       setIsPlaying(true)
+      audioRef?.current.removeEventListener("timeupdate", handleTimeUpdateEvent);
     }
   }, [trackId])
+
+  const handleToggleLoop = () => {
+    setIsLooped((prev) => !prev)
+    audioRef.current.loop = !audioRef.current.loop
+  }
+
+  const handleVolumeChange = (event) => {
+    let newVolume = event.target.value;
+    audioRef.current.volume = newVolume;
+    setVolume(newVolume);
+  }
 
   function handleClick() {
     const nextIsPlaying = !isPlaying
     setIsPlaying(nextIsPlaying)
 
     if (nextIsPlaying) {
-      ref.current.play()
+      audioRef.current.play()
     } else {
-      ref.current.pause()
+      audioRef.current.pause()
     }
   }
 
@@ -79,14 +113,22 @@ function AudioPlayer({ entireTrack, trackId }) {
 
   return (
     <S.Bar>
+      <div>
+        {secondsToTimeString(currentTime)} : {secondsToTimeString(duration)}
+      </div>
       <audio
-        ref={ref}
+        ref={audioRef}
         src={trackData?.track_file}
         type="audio/mp3"
         autoPlay={true}
       ></audio>
       <S.BarContent>
-        <ProgressBar></ProgressBar>
+        <ProgressBar
+          currentTime={currentTime}
+          audioRef={audioRef}
+          duration={duration}
+        >
+        </ProgressBar>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -118,9 +160,16 @@ function AudioPlayer({ entireTrack, trackId }) {
                   <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
                 </S.PlayerBtnNextSvg>
               </S.PlayerBtnNext>
-              <S.PlayerBtnRepeat>
+              <S.PlayerBtnRepeat onClick={handleToggleLoop}>
                 <S.PlayerBtnRepeatSvg alt="repeat">
-                  <use xlinkHref="img/icon/sprite.svg#icon-repeat"></use>
+                { isLoop ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 18" fill="none">
+                    <path d="M10 3L5 0.113249V5.88675L10 3ZM7 14.5C3.96243 14.5 1.5 12.0376 1.5 9H0.5C0.5 12.5899 3.41015 15.5 7 15.5V14.5ZM1.5 9C1.5 5.96243 3.96243 3.5 7 3.5V2.5C3.41015 2.5 0.5 5.41015 0.5 9H1.5Z" fill="white"/>
+                    <path d="M10 15L15 17.8868V12.1132L10 15ZM13 3.5C16.0376 3.5 18.5 5.96243 18.5 9H19.5C19.5 5.41015 16.5899 2.5 13 2.5V3.5ZM18.5 9C18.5 12.0376 16.0376 14.5 13 14.5V15.5C16.5899 15.5 19.5 12.5899 19.5 9H18.5Z" fill="white"/>
+                    </svg>
+                  ) : (
+                    <use xlinkHref="img/icon/sprite.svg#icon-repeat"></use>
+                  )}
                 </S.PlayerBtnRepeatSvg>
               </S.PlayerBtnRepeat>
               <S.PlayerBtnShuffle>
@@ -160,10 +209,11 @@ function AudioPlayer({ entireTrack, trackId }) {
                 id="volume" 
                 name="volume" 
                 min="0" 
-                max="100" 
+                max="1" 
                 step="0.01" 
-                defaultValue="1"
-                onChange={e => setVolume(e.target.value)}/>
+                onChange={handleVolumeChange}
+                value={volume}
+                />
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>

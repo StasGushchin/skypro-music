@@ -35,6 +35,7 @@ function Tracklist({setActiveTrack, setTrackId}) {
           <Track 
           setTrackId={setTrackId}
           setActiveTrack={setActiveTrack}
+          
           />
       </S.CenterBlock>
     </S.MainCenterblock>

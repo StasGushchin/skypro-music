@@ -57,9 +57,8 @@ export const StyledProgressInput = styled.input`
   }
 `;
 
-export default function ProgressBar() {
-  const [currentTime, setCurrentTime] = useState(0);
-  const duration = 230;
+export default function ProgressBar({currentTime, audioRef, duration}) {
+  
 
   return (
     <StyledProgressInput
@@ -68,7 +67,7 @@ export default function ProgressBar() {
       max={duration}
       value={currentTime}
       step={0.01}
-      onChange={(event) => setCurrentTime(event.target.value)}
+      onChange={(event) => audioRef.current.currentTime = event.target.value}
       $color="#ff0000"
     />
   );

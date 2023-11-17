@@ -3,6 +3,12 @@ import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Track.styles'
 import { getAllTracks } from '../../api'
 
+function convertSecondsToMinutes(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
 function Track({setActiveTrack, setTrackId}) {
   const [isVisible, setIsVisible] = useState(false)
   const onClickTrack = (track) => {
@@ -88,7 +94,7 @@ function Track({setActiveTrack, setTrackId}) {
           <use href="img/icon/sprite.svg#icon-like"></use>
         </S.TrackTimeSvg>
         <S.TrackTimeText>
-          {list.duration_in_seconds}
+          {convertSecondsToMinutes(list.duration_in_seconds)}
         </S.TrackTimeText>
       </S.TrackTime>
     </S.PlaylistTrack>
