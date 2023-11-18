@@ -159,8 +159,19 @@ export const PlayListTrack = styled.div`
 
 export const PlaylistItem = styled.div`
   width: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
   display: flex;
   margin-bottom: 12px;
   flex-direction: column;
   gap: 12px;
+  &::-webkit-scrollbar {
+  display: none
+}
+`
+
+export const ButtonTrack = styled.button`
+  background-color: transparent;
+  color: #FFF;
+  border: 0;
 `

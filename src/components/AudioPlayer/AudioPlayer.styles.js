@@ -231,7 +231,6 @@ export const PlayerBtnRepeatSvg = styled.svg`
   width: 18px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
 `
 
 export const PlayerBtnShuffle = styled.div`
@@ -331,5 +330,7 @@ export const VolumeProgress = styled.div`
   cursor: pointer;
 `
 
-export const VolumeProgressLine = styled(VolumeProgress)``
-
+export const VolumeProgressLine = styled.input`
+  width: 109px;
+  cursor: pointer;
+`

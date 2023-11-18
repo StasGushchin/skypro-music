@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Skeleton from '../Skeleton/Skeleton'
 import * as S from './Track.styles'
 import { getAllTracks } from '../../api'
 
-function Track({setActiveTrack}) {
+function convertSecondsToMinutes(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
+function Track({setActiveTrack, setTrackId}) {
   const [isVisible, setIsVisible] = useState(false)
   const onClickTrack = (track) => {
     setActiveTrack(track)
@@ -15,12 +21,30 @@ function Track({setActiveTrack}) {
 
   const [tracks, setTrack] = useState(null)
 
+
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
+
   useEffect(() => {
     getAllTracks()
       .then((tracks) => {
       setTrack(tracks);
     });
+    
     }, []);
+  
+  
+    function handleClick() {
+        const nextIsPlaying = !isPlaying;
+        setIsPlaying(nextIsPlaying);
+
+        // if (nextIsPlaying) {
+        //     ref.current.play();
+        // } else {
+        //     ref.current.pause();
+        // }
+    }
 
   return (
   
@@ -39,12 +63,19 @@ function Track({setActiveTrack}) {
       <S.TrackTitle>
         <S.TrackTitleImage>
           <S.TrackTitleSvg alt="music">
-            <use href="img/icon/sprite.svg#icon-note"></use>
+            <use href="img/icon/sprite.svg#icon-note" onClick={() => {
+              setTrackId(list.id)
+            }}></use>
           </S.TrackTitleSvg>
         </S.TrackTitleImage>
         <S.TrackTitleText>
           <S.TrackTitleLink href="http://">
-            {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
+            <S.ButtonTrack onClick={() => {
+              setTrackId(list.id)
+            }}>
+              {list.name} <S.TrackTitleSpan></S.TrackTitleSpan>
+            </S.ButtonTrack>
+            
           </S.TrackTitleLink>
         </S.TrackTitleText>
       </S.TrackTitle>
@@ -63,7 +94,7 @@ function Track({setActiveTrack}) {
           <use href="img/icon/sprite.svg#icon-like"></use>
         </S.TrackTimeSvg>
         <S.TrackTimeText>
-          {list.duration_in_seconds}
+          {convertSecondsToMinutes(list.duration_in_seconds)}
         </S.TrackTimeText>
       </S.TrackTime>
     </S.PlaylistTrack>

@@ -34,7 +34,7 @@ export const SidebarImg = styled.img`
 `
 
 export const MainSidebar = styled.div`
-  max-width: 418px;
+  max-width: 400px;
   padding: 20px 90px 20px 78px;
 `
 

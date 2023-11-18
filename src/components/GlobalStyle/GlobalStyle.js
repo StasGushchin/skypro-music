@@ -43,5 +43,12 @@ export const GlobalStyle = createGlobalStyle`
     color: #ffffff;
   }
   
+
+  button,
+  ._btn {
+    cursor: pointer;
+  }
+
+
 `;
 
